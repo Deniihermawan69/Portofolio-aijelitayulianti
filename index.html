@@ -7,6 +7,118 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
+        /* Lightbox Modal */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow: auto;
+  animation: fadeIn 0.3s;
+}
+
+.lightbox-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.lightbox-img.zoomed {
+  transform: scale(1);
+}
+
+/* Tombol Close di Kiri Atas */
+.close-lightbox {
+  position: absolute;
+  top: 20px;
+  left: 30px; /* Pindah ke kiri */
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 10000;
+}
+
+.close-lightbox:hover {
+  color: var(--secondary);
+}
+
+/* Navigasi di Kanan */
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  right: 20px; /* Pindah ke kanan */
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column; /* Susun vertikal */
+  gap: 20px;
+}
+
+.prev, .next {
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  padding: 10px;
+  user-select: none;
+  transition: 0.3s;
+  background: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prev:hover, .next:hover {
+  color: var(--primary);
+  background: rgba(0,0,0,0.8);
+}
+
+.caption {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  font-size: 1.1rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Image click effect */
+.project-image, .pkl-image {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.project-image:hover, .pkl-image:hover {
+  transform: scale(1.02);
+}
     .no-print {
   display: none;
 }
